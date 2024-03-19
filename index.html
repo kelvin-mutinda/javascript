@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body style="background-color:yellow">
+    <form name="form1">
+        <!-- first number : <input type="text" name="num1" id="n1"><br><br>
+        second number : <input type="text" name="num2" id="n2" onblur="add()"><br><br>
+        result : <input type="text" name="res" id="rs"> -->
+
+        <br><br><br>
+        Enter your name:
+        <input type="text" name="name" id="name" onblur="uppercase()">
+        <h1 id="h1"></h1>
+        <img src="./image2.jpg" alt="My Image" id="img" width="400" height="250" onmouseover="change()"
+            onmouseout="retrieve()">
+    </form>
+
+    <p id="para">This paragraph has no style</p>
+    <button onclick="changestyle()">Change style</button>
+    <script>
+        // function add() {
+        //    var a = document.getElementById('n1').value 
+        //    var b = document.getElementById('n2').value
+
+        //    var ans = a*b
+        //    document.getElementById('rs').value= ans
+        // }
+
+        // add event listenter to body
+
+        document.body.addEventListener('mousemove', () => {
+            document.body.style.backgroundColor = "#ff0000"
+        })
+
+        // change styles
+
+        function changestyle() {
+            var para = document.getElementById('para')
+            para.style.backgroundColor = '#00ff00'
+            para.style.color = '#000'
+            para.style.fontSize = '2rem'
+            para.style.padding = '15px'
+            para.style.maxWidth = '25rem'
+            para.style.borderRadius = '10px'
+            para.innerHTML = 'This paragraph is styled...'
+        }
+
+        // set src to img
+        function change() {
+            var img = document.getElementById('img')
+            img.setAttribute("src", "image.jpg")
+            img.style.transition = "all 4s ease-in-out"
+        }
+
+        function retrieve() {
+            var img = document.getElementById('img')
+            img.setAttribute("src", "image2.jpg")
+        }
+
+
+
+        function uppercase() {
+            var name = document.getElementById('name').value
+            document.getElementById('name').value = name.toUpperCase()
+
+            var h1 = document.getElementById('h1')
+            h1.textContent = name.toUpperCase()
+
+        }
+
+
+    </script>
+</body>
+
+</html>
